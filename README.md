@@ -1,6 +1,6 @@
 # Comic Themed Pomodoro Timer ⏱️✨
 
-A comic-themed productivity timer with motivational quotes, breaks and editable.
+A comic-themed productivity timer with motivational quotes, breaks and more.
 
 ## 💡Features
 - 🧠 Editable timer before session start
