@@ -65,7 +65,7 @@ function startQuoteRotation() {
         setTimeout(() => {
             quoteBox.style.opacity = "0";
             quoteBox.classList.add("hidden");
-        }, 5000);
+        }, 5500);
     };
 
     showQuote(); // show first quote immediately
