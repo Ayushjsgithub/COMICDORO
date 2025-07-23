@@ -48,19 +48,25 @@ function updateTimer() {
 function startQuoteRotation() {
     if (quoteInterval) clearInterval(quoteInterval);
 
+    let lastQuote = "";
+
     quoteInterval = setInterval(() => {
-        const quote = quotes[Math.floor(Math.random() * quotes.length)];
+        let quote;
+        do {
+            quote = quotes[Math.floor(Math.random() * quotes.length)];
+        } while (quote === lastQuote);
+
+        lastQuote = quote;
         quoteBox.textContent = quote;
 
         quoteBox.classList.remove("hidden");
         quoteBox.style.opacity = "1";
 
-
         setTimeout(() => {
             quoteBox.style.opacity = "0";
             quoteBox.classList.add("hidden");
-        }, 5000);
-    }, 20000);
+        }, 7000);
+    }, 25000);
 }
 
 
