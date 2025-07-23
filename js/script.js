@@ -50,7 +50,7 @@ function startQuoteRotation() {
 
     let lastQuote = "";
 
-    quoteInterval = setInterval(() => {
+    const showQuote = () => {
         let quote;
         do {
             quote = quotes[Math.floor(Math.random() * quotes.length)];
@@ -65,10 +65,12 @@ function startQuoteRotation() {
         setTimeout(() => {
             quoteBox.style.opacity = "0";
             quoteBox.classList.add("hidden");
-        }, 7000);
-    }, 25000);
-}
+        }, 5000);
+    };
 
+    showQuote(); // show first quote immediately
+    quoteInterval = setInterval(showQuote, 20000);
+}
 
 
 function updateButtons() {
