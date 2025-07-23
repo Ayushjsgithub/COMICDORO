@@ -4,6 +4,7 @@ let running = false;
 let isBreak = false;
 let quoteInterval;
 
+
 const display = document.getElementById("timer");
 const start = document.getElementById("start");
 const pause = document.getElementById("pause");
@@ -31,6 +32,8 @@ const quotes = [
     "“Your time is limited, so don’t waste it living someone else’s life.” — Steve Jobs ⏳🚫🎭",
     "“In the middle of every difficulty lies opportunity.” — Albert Einstein 🌪️💡"
 ];
+
+const fullscreenIcon = document.getElementById("fullscreen-icon");
 
 
 
@@ -212,4 +215,26 @@ reset.addEventListener("click", resetTimer);
 
 updateTimer();
 updateButtons();
+
+
+fullscreenIcon.addEventListener("click", () => {
+    const doc = document;
+    const elem = doc.documentElement;
+
+    if (!doc.fullscreenElement && elem.requestFullscreen) {
+        elem.requestFullscreen().catch(err => {
+            alert(`Error enabling fullscreen: ${err.message}`);
+        });
+    } else if (doc.exitFullscreen) {
+        doc.exitFullscreen();
+    }
+});
+
+document.addEventListener("fullscreenchange", () => {
+    if (document.fullscreenElement) {
+        fullscreenIcon.textContent = "🗗";
+    } else {
+        fullscreenIcon.textContent = "⛶";
+    }
+});
 

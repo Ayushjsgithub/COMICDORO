@@ -243,3 +243,28 @@ body {
     pointer-events: none;
     transform: translateX(-50%) translateY(20px);
 }
+
+.fullscreen-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 28px;
+    color: #000;
+    border: 3px solid #000;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 #000;
+    z-index: 1001;
+    transition: transform 0.2s, background-color 0.3s;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fullscreen-icon:hover {
+    background-color: #ffe600;
+    transform: scale(1.1);
+}
