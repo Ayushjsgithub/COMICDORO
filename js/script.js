@@ -36,8 +36,6 @@ const quotes = [
 
 const fullscreenIcon = document.getElementById("fullscreen-icon");
 
-
-
 const quoteBox = document.getElementById("quote-popup");
 
 function updateTimer() {
