@@ -46,6 +46,7 @@ function updateTimer() {
     display.textContent = `${min}:${sec}`;
 }
 
+//Quote Logic
 function startQuoteRotation() {
     if (quoteInterval) clearInterval(quoteInterval);
 
