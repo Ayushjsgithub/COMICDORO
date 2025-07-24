@@ -241,6 +241,8 @@ fullscreenIcon.addEventListener("click", () => {
     }
 });
 
+
+//Fullscreen mode 
 document.addEventListener("fullscreenchange", () => {
     if (document.fullscreenElement) {
         fullscreenIcon.textContent = "🗗";
