@@ -3,7 +3,8 @@ let timer;
 let running = false;
 let isBreak = false;
 let quoteInterval;
-
+let pomodoroCount = 0;
+let isIdle = true;
 
 const display = document.getElementById("timer");
 const start = document.getElementById("start");
@@ -96,6 +97,9 @@ function startTimer() {
                 updateButtons();
 
                 if (!isBreak) {
+                    pomodoroCount++;
+                    document.getElementById("count").textContent = pomodoroCount;
+
                     // End of work session
                     isBreak = true;
                     time = 300; // 5-minute break
