@@ -257,7 +257,7 @@ document.addEventListener("keydown", (e) => {
 
     switch (e.key.toLowerCase()) {
         case " ":
-        case "spacebar":
+        case "spacebar"://start/pause
             e.preventDefault();
             if (running) {
                 pauseTimer();
@@ -266,18 +266,18 @@ document.addEventListener("keydown", (e) => {
             }
             break;
 
-        case "r":
+        case "r":// Reset timer
             resetTimer();
             break;
 
 
-        case "f":
+        case "f"://fullscreen
             fullscreenIcon.click();
             break;
 
 
 
-        case "e":
+        case "e":// Edit time
             if (isIdle && !running) {
                 timerEl.setAttribute("contenteditable", "true");
                 timerEl.focus();
