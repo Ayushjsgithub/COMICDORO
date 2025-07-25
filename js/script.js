@@ -279,6 +279,7 @@ document.addEventListener("keydown", (e) => {
 
         case "e":// Edit time
             if (isIdle && !running) {
+                e.preventDefault();
                 timerEl.setAttribute("contenteditable", "true");
                 timerEl.focus();
             }
