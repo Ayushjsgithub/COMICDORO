@@ -253,11 +253,19 @@ document.addEventListener("fullscreenchange", () => {
 
 
 document.addEventListener("keydown", (e) => {
-    if (e.target.tagName === "INPUT" || e.target.isContentEditable) return;
+
+    const isEditing = timerEl.getAttribute("contenteditable") === "true";
+
+    if (
+        (e.target.tagName === "INPUT" || e.target.isContentEditable) &&
+        !(e.key.toLowerCase() === "e" && isIdle && !running)
+    ) {
+        return;
+    }
 
     switch (e.key.toLowerCase()) {
-        case " ":
-        case "spacebar"://start/pause
+        case " ": // Start/Pause
+        case "spacebar":
             e.preventDefault();
             if (running) {
                 pauseTimer();
@@ -266,22 +274,29 @@ document.addEventListener("keydown", (e) => {
             }
             break;
 
-        case "r":// Reset timer
+        case "r": // Reset
             resetTimer();
             break;
 
-
-        case "f"://fullscreen
+        case "f": // Fullscreen
             fullscreenIcon.click();
             break;
 
+        case "e": // Edit
+            e.preventDefault(); // Block typing 'e'
 
+            if (!isIdle || running) return;
 
-        case "e":// Edit time
-            if (isIdle && !running) {
-                e.preventDefault();
+            if (isEditing) {
+                timerEl.removeAttribute("contenteditable");
+                timerEl.blur();
+            } else {
                 timerEl.setAttribute("contenteditable", "true");
-                timerEl.focus();
+
+
+                setTimeout(() => {
+                    timerEl.focus();
+                }, 0);
             }
             break;
     }
