@@ -251,3 +251,38 @@ document.addEventListener("fullscreenchange", () => {
     }
 });
 
+
+document.addEventListener("keydown", (e) => {
+    if (e.target.tagName === "INPUT" || e.target.isContentEditable) return;
+
+    switch (e.key.toLowerCase()) {
+        case " ":
+        case "spacebar":
+            e.preventDefault();
+            if (running) {
+                pauseTimer();
+            } else {
+                startTimer();
+            }
+            break;
+
+        case "r":
+            resetTimer();
+            break;
+
+
+        case "f":
+            fullscreenIcon.click();
+            break;
+
+
+
+        case "e":
+            if (isIdle && !running) {
+                timerEl.setAttribute("contenteditable", "true");
+                timerEl.focus();
+            }
+            break;
+    }
+});
+
