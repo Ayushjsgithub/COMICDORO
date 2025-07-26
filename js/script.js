@@ -76,10 +76,6 @@ function updateToggleButton() {
     toggleBtn.textContent = running ? "Pause" : "Start";
 }
 
-// function updateButtons() {
-//     start.disabled = running;
-//     pause.disabled = !running;
-// }
 
 function startTimer() {
     if (!running) {
