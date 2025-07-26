@@ -7,8 +7,7 @@ let pomodoroCount = 0;
 let isIdle = true;
 
 const display = document.getElementById("timer");
-const start = document.getElementById("start");
-const pause = document.getElementById("pause");
+const toggleBtn = document.getElementById("start-pause");
 const reset = document.getElementById("reset");
 const customTimeInput = document.getElementById("custom-time");
 const speech = document.querySelector(".speech-bubble");
@@ -73,10 +72,14 @@ function startQuoteRotation() {
 }
 
 
-function updateButtons() {
-    start.disabled = running;
-    pause.disabled = !running;
+function updateToggleButton() {
+    toggleBtn.textContent = running ? "Pause" : "Start";
 }
+
+// function updateButtons() {
+//     start.disabled = running;
+//     pause.disabled = !running;
+// }
 
 function startTimer() {
     if (!running) {
@@ -93,7 +96,7 @@ function startTimer() {
             } else {
                 clearInterval(timer);
                 running = false;
-                updateButtons();
+                updateToggleButton();
 
                 if (!isBreak) {
                     pomodoroCount++;
@@ -115,7 +118,7 @@ function startTimer() {
             }
         }, 1000);
         running = true;
-        updateButtons();
+        updateToggleButton();
     }
 }
 
@@ -124,7 +127,7 @@ function pauseTimer() {
     clearInterval(quoteInterval);
     running = false;
     clockBox.classList.remove("running");
-    updateButtons();
+    updateToggleButton();
 }
 
 function resetTimer() {
@@ -135,7 +138,7 @@ function resetTimer() {
     isIdle = true;
     updateTimer();
     speech.textContent = "Time to power up and focus! 💥";
-    updateButtons();
+    updateToggleButton();
     clockBox.classList.remove("running");
 }
 
@@ -220,12 +223,18 @@ timerEl.addEventListener("blur", () => {
 });
 
 
-start.addEventListener("click", startTimer);
-pause.addEventListener("click", pauseTimer);
+toggleBtn.addEventListener("click", () => {
+    if (running) {
+        pauseTimer();
+    } else {
+        startTimer();
+    }
+});
+
 reset.addEventListener("click", resetTimer);
 
 updateTimer();
-updateButtons();
+updateToggleButton();
 
 
 fullscreenIcon.addEventListener("click", () => {
