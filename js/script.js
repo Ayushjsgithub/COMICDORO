@@ -138,8 +138,6 @@ function resetTimer() {
     clockBox.classList.remove("running");
 }
 
-
-
 // Timer logic
 const timerEl = document.getElementById("timer");
 
