@@ -326,20 +326,42 @@ body {
     transform: scale(1.05) rotate(1deg);
 }
 
-.info-btn {
+.info-container {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: #fff;
-    border: 2px solid #000;
-    border-radius: 50%;
-    padding: 6px 10px;
+}
+
+.info-btn {
+    background: none;
+    border: none;
     font-size: 18px;
     cursor: pointer;
-    box-shadow: 2px 2px 0 #000;
+    padding: 6px 10px;
     transition: transform 0.2s ease;
 }
 
 .info-btn:hover {
     transform: scale(1.1) rotate(5deg);
+}
+
+.info-popup {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 220px;
+    background: #fff;
+    color: #000;
+    padding: 10px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    box-shadow: 4px 4px 0 #000;
+    font-size: 14px;
+    white-space: pre-line;
+    z-index: 10;
+}
+
+.info-container:hover .info-popup {
+    display: block;
 }
