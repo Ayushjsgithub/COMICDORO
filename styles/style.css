@@ -325,3 +325,21 @@ body {
 #pomodoro-count:hover {
     transform: scale(1.05) rotate(1deg);
 }
+
+.info-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #fff;
+    border: 2px solid #000;
+    border-radius: 50%;
+    padding: 6px 10px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 #000;
+    transition: transform 0.2s ease;
+}
+
+.info-btn:hover {
+    transform: scale(1.1) rotate(5deg);
+}
