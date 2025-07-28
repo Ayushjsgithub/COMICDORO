@@ -418,19 +418,20 @@ body {
     z-index: 9999;
     opacity: 0;
     pointer-events: none;
-    animation: confetti-fall 1.5s ease-out forwards;
-    border-radius: 2px;
+    animation: confetti-fall 2s ease-out forwards;
+    border-radius: 1px;
     will-change: transform;
+    transform: rotate(0deg);
 }
 
 @keyframes confetti-fall {
     0% {
-        transform: translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) rotate(0deg) scale(1);
         opacity: 1;
     }
 
     100% {
-        transform: translate(var(--x), var(--y)) rotate(var(--rot));
+        transform: translate(var(--x), var(--y)) rotate(var(--rot)) scale(0.8);
         opacity: 0;
     }
 }

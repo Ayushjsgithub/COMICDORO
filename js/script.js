@@ -140,8 +140,13 @@ function resetTimer() {
 
 
 function launchFullPagePopper() {
-    const colors = ["#f94144", "#f3722c", "#f9844a", "#f9c74f", "#90be6d", "#43aa8b", "#577590", "#277da1"];
-    const numPieces = 150;
+    const colors = [
+        "#f94144", "#f3722c", "#f9844a", "#f9c74f",
+        "#90be6d", "#43aa8b", "#577590", "#277da1",
+        "#e76f51", "#264653", "#2a9d8f", "#e9c46a"
+    ];
+
+    const numPieces = 250;
 
     for (let i = 0; i < numPieces; i++) {
         const confetti = document.createElement("div");
@@ -150,6 +155,14 @@ function launchFullPagePopper() {
 
         confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
 
+
+        if (Math.random() < 0.1) {
+            confetti.textContent = ["🎉", "🎊", "✨", "🥳"][Math.floor(Math.random() * 4)];
+            confetti.style.backgroundColor = "transparent";
+            confetti.style.fontSize = `${14 + Math.random() * 20}px`;
+        }
+
+
         const width = 4 + Math.random() * 6;
         const height = 6 + Math.random() * 10;
         confetti.style.width = `${width}px`;
@@ -157,20 +170,29 @@ function launchFullPagePopper() {
 
 
         const startX = Math.random() * window.innerWidth;
-        const startY = Math.random() * window.innerHeight;
+        const startY = Math.random() * -200;
         confetti.style.left = `${startX}px`;
         confetti.style.top = `${startY}px`;
 
-        const x = (Math.random() - 0.5) * 300 + "px";
-        const y = 300 + Math.random() * 300 + "px";
+        const x = (Math.random() - 0.5) * 600 + "px";
+        const y = 400 + Math.random() * 400 + "px";
         const rot = `${Math.floor(Math.random() * 1440)}deg`;
         confetti.style.setProperty("--x", x);
         confetti.style.setProperty("--y", y);
         confetti.style.setProperty("--rot", rot);
 
+
+        const duration = 1.5 + Math.random();
+        confetti.style.animationDuration = `${duration}s`;
+
+
+        if (Math.random() < 0.2) {
+            confetti.style.filter = "blur(1px)";
+        }
+
         document.body.appendChild(confetti);
 
-        setTimeout(() => confetti.remove(), 2000);
+        setTimeout(() => confetti.remove(), duration * 1000 + 500);
     }
 }
 
