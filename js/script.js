@@ -97,7 +97,7 @@ function startTimer() {
                 if (!isBreak) {
                     pomodoroCount++;
                     document.getElementById("count").textContent = pomodoroCount;
-
+                    showSparkle()
                     // End of work session
                     isBreak = true;
                     time = 300; // 5-minute break
@@ -137,6 +137,14 @@ function resetTimer() {
     updateToggleButton();
     clockBox.classList.remove("running");
 }
+
+function showSparkle() {
+    const sparkle = document.getElementById('sparkle-animation');
+    sparkle.classList.remove('sparkle');
+    void sparkle.offsetWidth;
+    sparkle.classList.add('sparkle');
+}
+
 
 // Timer logic
 const timerEl = document.getElementById("timer");
