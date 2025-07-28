@@ -190,6 +190,10 @@ function launchFullPagePopper() {
             confetti.style.filter = "blur(1px)";
         }
 
+        const animations = ["fall1", "fall2", "fall3", "fall4", "fall5"];
+        const randomAnim = animations[Math.floor(Math.random() * animations.length)];
+        confetti.style.animationName = randomAnim;
+
         document.body.appendChild(confetti);
 
         setTimeout(() => confetti.remove(), duration * 1000 + 500);
