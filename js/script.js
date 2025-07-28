@@ -97,7 +97,7 @@ function startTimer() {
                 if (!isBreak) {
                     pomodoroCount++;
                     document.getElementById("count").textContent = pomodoroCount;
-                    showSparkle()
+                    launchFullPagePopper()
                     // End of work session
                     isBreak = true;
                     time = 300; // 5-minute break
@@ -138,12 +138,43 @@ function resetTimer() {
     clockBox.classList.remove("running");
 }
 
-function showSparkle() {
-    const sparkle = document.getElementById('sparkle-animation');
-    sparkle.classList.remove('sparkle');
-    void sparkle.offsetWidth;
-    sparkle.classList.add('sparkle');
+
+function launchFullPagePopper() {
+    const colors = ["#f94144", "#f3722c", "#f9844a", "#f9c74f", "#90be6d", "#43aa8b", "#577590", "#277da1"];
+    const numPieces = 150;
+
+    for (let i = 0; i < numPieces; i++) {
+        const confetti = document.createElement("div");
+        confetti.classList.add("confetti");
+
+
+        confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+        const width = 4 + Math.random() * 6;
+        const height = 6 + Math.random() * 10;
+        confetti.style.width = `${width}px`;
+        confetti.style.height = `${height}px`;
+
+
+        const startX = Math.random() * window.innerWidth;
+        const startY = Math.random() * window.innerHeight;
+        confetti.style.left = `${startX}px`;
+        confetti.style.top = `${startY}px`;
+
+        const x = (Math.random() - 0.5) * 300 + "px";
+        const y = 300 + Math.random() * 300 + "px";
+        const rot = `${Math.floor(Math.random() * 1440)}deg`;
+        confetti.style.setProperty("--x", x);
+        confetti.style.setProperty("--y", y);
+        confetti.style.setProperty("--rot", rot);
+
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 2000);
+    }
 }
+
+
 
 
 // Timer logic
