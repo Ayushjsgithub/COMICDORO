@@ -36,7 +36,15 @@ const quotes = [
 const fullscreenIcon = document.getElementById("fullscreen-icon");
 
 const quoteBox = document.getElementById("quote-popup");
-const celebrationSound = new Audio('../assets/audios/sparkle.mp3');
+
+const celebrationSounds = [
+    new Audio("../assets/audios/sparkle 1.mp3"),
+    new Audio("../assets/audios/sparkle 2.mp3"),
+    new Audio("../assets/audios/sparkle 3.mp3"),
+    new Audio("../assets/audios/sparkle 4.mp3"),
+    new Audio("../assets/audios/sparkle 5.mp3")
+]
+
 
 function updateTimer() {
     const min = String(Math.floor(time / 60)).padStart(2, '0');
@@ -140,11 +148,12 @@ function resetTimer() {
 }
 
 
-celebrationSound.volume = 0.5;
+celebrationSounds.forEach(sound => sound.volume = 0.5);
 function launchFullPagePopper() {
 
-    celebrationSound.currentTime = 0;
-    celebrationSound.play();
+    const randomSound = celebrationSounds[Math.floor(Math.random() * celebrationSounds.length)];
+    randomSound.currentTime = 0;
+    randomSound.play();
 
     const colors = [
         "#f94144", "#f3722c", "#f9844a", "#f9c74f",
