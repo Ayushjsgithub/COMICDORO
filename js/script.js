@@ -36,6 +36,7 @@ const quotes = [
 const fullscreenIcon = document.getElementById("fullscreen-icon");
 
 const quoteBox = document.getElementById("quote-popup");
+const celebrationSound = new Audio('../assets/audios/sparkle.mp3');
 
 function updateTimer() {
     const min = String(Math.floor(time / 60)).padStart(2, '0');
@@ -139,7 +140,12 @@ function resetTimer() {
 }
 
 
+celebrationSound.volume = 0.5;
 function launchFullPagePopper() {
+
+    celebrationSound.currentTime = 0;
+    celebrationSound.play();
+
     const colors = [
         "#f94144", "#f3722c", "#f9844a", "#f9c74f",
         "#90be6d", "#43aa8b", "#577590", "#277da1",
