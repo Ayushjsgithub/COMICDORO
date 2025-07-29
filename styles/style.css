@@ -3,7 +3,7 @@ body {
     margin: 0;
     font-family: 'Comic Neue', cursive;
     min-height: 100vh;
-    background: url('../assets/comic-bg.png') center center no-repeat;
+    background: url('../assets/images/comic-bg.png') center center no-repeat;
     background-size: cover;
     overflow-x: hidden;
 }
