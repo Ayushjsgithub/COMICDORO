@@ -148,11 +148,11 @@ function resetTimer() {
 }
 
 
-celebrationSounds.forEach(sound => sound.volume = 0.5);
 function launchFullPagePopper() {
 
     const randomSound = celebrationSounds[Math.floor(Math.random() * celebrationSounds.length)];
     randomSound.currentTime = 0;
+    randomSound.volume = 0.7 + Math.random() * 0.3;
     randomSound.play();
 
     const colors = [
