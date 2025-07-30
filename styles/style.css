@@ -145,12 +145,29 @@ body {
     padding: 4px 8px;
 }
 
-
 /* Time Setter */
 .time-setter {
     margin-bottom: 20px;
     display: flex;
     gap: 10px;
+}
+
+.time-setter.glow {
+    animation: flashGlow 300ms ease-in-out;
+}
+
+@keyframes flashGlow {
+    0% {
+        box-shadow: 0 0 0px #fff400;
+    }
+
+    50% {
+        box-shadow: 0 0 12px #fff400;
+    }
+
+    100% {
+        box-shadow: 0 0 0px #fff400;
+    }
 }
 
 #custom-time {

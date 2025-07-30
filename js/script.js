@@ -1,5 +1,6 @@
 let time = 1500; // 25 minutes default
 let timer;
+let prevTime = time;
 let running = false;
 let isBreak = false;
 let quoteInterval;
@@ -296,21 +297,34 @@ timerEl.addEventListener("blur", () => {
     timerEl.removeAttribute("contenteditable");
 });
 
+const timeSetterEl = document.querySelector(".time-setter");
+
 timerEl.addEventListener("wheel", (event) => {
     event.preventDefault();
 
     if (!isIdle || running || isBreak) return;
 
-    let delta = event.deltaY < 0 ? 60 : -60; // Scroll up = +1 min, down = -1 min
-    if (event.shiftKey) delta *= 5; // +5 or -5 mins
+    const delta = event.deltaY < 0 ? 60 : -60;
+    const adjustedDelta = event.shiftKey ? delta * 5 : delta;
 
-    // Apply the change
-    time = Math.max(1, Math.min(7200, time + delta));
-    updateTimer();
+    const newTime = Math.max(1, Math.min(7200, time + adjustedDelta));
 
+    if (newTime !== time) {
+        time = newTime;
+        updateTimer();
 
+        timeSetterEl.classList.remove("glow");
+        void timeSetterEl.offsetWidth;
+        timeSetterEl.classList.add("glow");
+
+        clearTimeout(timeSetterEl._glowTimeout);
+        timeSetterEl._glowTimeout = setTimeout(() => {
+            timeSetterEl.classList.remove("glow");
+        }, 300);
+    }
+
+    prevTime = time;
 });
-
 
 
 
