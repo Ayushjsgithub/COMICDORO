@@ -131,6 +131,10 @@ body {
         2px 2px 0 #000,
         0 0 10px #fff400;
     position: relative;
+    display: inline-block;
+    height: 4.5rem;
+    line-height: 4.5rem;
+    overflow: hidden;
 }
 
 #timer:focus {

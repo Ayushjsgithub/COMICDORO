@@ -296,6 +296,23 @@ timerEl.addEventListener("blur", () => {
     timerEl.removeAttribute("contenteditable");
 });
 
+timerEl.addEventListener("wheel", (event) => {
+    event.preventDefault();
+
+    if (!isIdle || running || isBreak) return;
+
+    let delta = event.deltaY < 0 ? 60 : -60; // Scroll up = +1 min, down = -1 min
+    if (event.shiftKey) delta *= 5; // +5 or -5 mins
+
+    // Apply the change
+    time = Math.max(1, Math.min(7200, time + delta));
+    updateTimer();
+
+
+});
+
+
+
 
 toggleBtn.addEventListener("click", () => {
     if (running) {
