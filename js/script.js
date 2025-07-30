@@ -247,7 +247,7 @@ timerEl.addEventListener("blur", () => {
     timerEl.removeAttribute("contenteditable");
 
     if (!isIdle) {
-        updateTimer(); // restore original time
+        updateTimer();
         return;
     }
 
