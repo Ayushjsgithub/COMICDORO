@@ -1,6 +1,5 @@
 let time = 1500; // 25 minutes default
 let timer;
-let prevTime = time;
 let running = false;
 let isBreak = false;
 let quoteInterval;
@@ -216,9 +215,6 @@ function launchFullPagePopper() {
     }
 }
 
-
-
-
 // Timer logic
 const timerEl = document.getElementById("timer");
 
@@ -304,27 +300,16 @@ timerEl.addEventListener("wheel", (event) => {
 
     if (!isIdle || running || isBreak) return;
 
-    const delta = event.deltaY < 0 ? 60 : -60;
-    const adjustedDelta = event.shiftKey ? delta * 5 : delta;
+    let delta = event.deltaY < 0 ? 60 : -60; // Scroll up = +1 min, down = -1 min
+    if (event.shiftKey) delta *= 5; // +5 or -5 mins
 
-    const newTime = Math.max(1, Math.min(7200, time + adjustedDelta));
+    // Apply the change
+    time = Math.max(1, Math.min(7200, time + delta));
+    updateTimer();
 
-    if (newTime !== time) {
-        time = newTime;
-        updateTimer();
 
-        timeSetterEl.classList.remove("glow");
-        void timeSetterEl.offsetWidth;
-        timeSetterEl.classList.add("glow");
-
-        clearTimeout(timeSetterEl._glowTimeout);
-        timeSetterEl._glowTimeout = setTimeout(() => {
-            timeSetterEl.classList.remove("glow");
-        }, 300);
-    }
-
-    prevTime = time;
 });
+
 
 
 
