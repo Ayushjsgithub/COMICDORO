@@ -68,7 +68,9 @@ body {
 }
 
 .clock-box.running {
-    animation: pulse-pop 2s infinite;
+    animation-name: pulse-pop;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
 }
 
 @keyframes pulse-pop {
@@ -113,6 +115,29 @@ body {
 
     100% {
         transform: rotate(-2deg) translateX(0);
+    }
+}
+
+.clock-box.pulse-warning {
+    animation-name: pulse-pop, pulseRed;
+    animation-duration: 2s, 1s;
+    animation-iteration-count: infinite, infinite;
+}
+
+@keyframes pulseRed {
+    0% {
+        background-color: #ff4d4d;
+        box-shadow: 8px 8px 0 #000, 0 0 10px #ff4d4d;
+    }
+
+    50% {
+        background-color: #ffe600;
+        box-shadow: 8px 8px 0 #000, 0 0 0px transparent;
+    }
+
+    100% {
+        background-color: #ff4d4d;
+        box-shadow: 8px 8px 0 #000, 0 0 10px #ff4d4d;
     }
 }
 

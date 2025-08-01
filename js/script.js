@@ -93,12 +93,19 @@ function startTimer() {
 
         startQuoteRotation();
 
-
         timer = setInterval(() => {
             if (time > 0) {
                 time--;
+
+                if (time <= 5 && time > 0) {
+                    clockBox.classList.add("pulse-warning");
+                } else {
+                    clockBox.classList.remove("pulse-warning");
+                }
+
                 updateTimer();
             } else {
+                clockBox.classList.remove("pulse-warning");
                 clearInterval(timer);
                 running = false;
                 updateToggleButton();
