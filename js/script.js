@@ -293,7 +293,6 @@ timerEl.addEventListener("blur", () => {
     timerEl.removeAttribute("contenteditable");
 });
 
-const timeSetterEl = document.querySelector(".time-setter");
 
 timerEl.addEventListener("wheel", (event) => {
     event.preventDefault();
@@ -309,7 +308,6 @@ timerEl.addEventListener("wheel", (event) => {
 
 
 });
-
 
 
 
