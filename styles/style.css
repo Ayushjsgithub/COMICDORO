@@ -354,13 +354,6 @@ body {
     transform: scale(1.05) rotate(1deg);
 }
 
-.info-wrapper {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 100;
-}
-
 /* Info button style */
 .info-btn {
     background: #fff;
