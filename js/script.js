@@ -406,3 +406,18 @@ document.addEventListener("keydown", (e) => {
     }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const infoBtn = document.querySelector(".info-btn");
+    const infoContainer = document.querySelector(".info-container");
+
+    infoBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        infoContainer.classList.toggle("active");
+    });
+
+    document.addEventListener("click", function (e) {
+        if (!infoContainer.contains(e.target)) {
+            infoContainer.classList.remove("active");
+        }
+    });
+});
