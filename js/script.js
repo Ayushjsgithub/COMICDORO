@@ -24,7 +24,24 @@ const fullscreenIcon = document.getElementById("fullscreen-icon");
 const timerEl = document.getElementById("timer");
 
 // Data
-const quotes = [];
+const quotes = [
+    "The secret of getting ahead is getting started. — Mark Twain 🚀",
+    "Small steps every day lead to big changes over time. — Unknown 🐾",
+    "You don’t have to be perfect. Just keep going. — Unknown 🔁",
+    "Success doesn’t come from what you do occasionally, but what you do consistently. — Marie Forleo 🧱",
+    "Push yourself, because no one else is going to do it for you. — Unknown 🧗‍♀️",
+    "Your only limit is your mind. — Unknown 🧠✨",
+    "Great things never come from comfort zones. — Unknown 🚪🔥",
+    "Done is better than perfect. — Sheryl Sandberg ✅",
+    "Progress is progress, no matter how small. — Unknown 🪴",
+    "Make today count. — Unknown ⏰📅",
+    "Keep showing up. That's half the battle. — Unknown 💪📍",
+    "One task at a time. That’s how it’s done. — Unknown 🧩",
+    "Every minute you spend working is a vote for your future self. — Unknown 🗳️📈",
+    "Rest is part of the process, not a reward. — Unknown 💤🌱",
+    "Work hard in silence, let your success make the noise. — Frank Ocean 🔇🔊"
+];
+
 const celebrationSounds = [
     "../assets/audios/sparkle 1.mp3",
     "../assets/audios/sparkle 2.mp3",
