@@ -350,7 +350,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 goalInput.addEventListener("change", () => {
-    document.getElementById("goal").textContent = sessionGoal;
     const val = parseInt(goalInput.value);
     if (!isNaN(val) && val >= 1 && val <= 20) {
         sessionGoal = val;
