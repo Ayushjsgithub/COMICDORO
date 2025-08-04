@@ -3,6 +3,7 @@ const DEFAULT_WORK_TIME = 1500; // 25 mins
 const DEFAULT_BREAK_TIME = 300; // 5 mins
 const MAX_TIME = 7200;
 const MIN_TIME = 1;
+const LONG_BREAK_TIME = 900;
 
 // State
 let time = DEFAULT_WORK_TIME;
@@ -11,6 +12,7 @@ let running = false;
 let isBreak = false;
 let isIdle = true;
 let pomodoroCount = 0;
+let sessionGoal = 4;
 
 // DOM Elements
 const display = document.getElementById("timer");
@@ -22,6 +24,8 @@ const clockBox = document.querySelector(".clock-box");
 const quoteBox = document.getElementById("quote-popup");
 const fullscreenIcon = document.getElementById("fullscreen-icon");
 const timerEl = document.getElementById("timer");
+const goalInput = document.getElementById("goal-input");
+
 
 // Data
 const quotes = [
@@ -110,9 +114,16 @@ function handleSessionEnd() {
     if (!isBreak) {
         pomodoroCount++;
         document.getElementById("count").textContent = pomodoroCount;
-        speech.textContent = "Break time, champ! 🎉";
+
+        if (pomodoroCount % sessionGoal === 0) {
+            speech.textContent = "You hit your goal! 🌟 Take a longer break.";
+            time = LONG_BREAK_TIME;
+        } else {
+            speech.textContent = "Break time, champ! 🎉";
+            time = DEFAULT_BREAK_TIME;
+        }
+
         isBreak = true;
-        time = DEFAULT_BREAK_TIME;
         launchFullPagePopper();
     } else {
         speech.textContent = "Back to work! 💪";
@@ -123,6 +134,7 @@ function handleSessionEnd() {
     updateTimer();
     startTimer();
 }
+
 
 // ------------------------- Quotes -------------------------
 
@@ -334,4 +346,16 @@ document.addEventListener("DOMContentLoaded", () => {
             infoContainer.classList.remove("active");
         }
     });
+});
+
+
+goalInput.addEventListener("change", () => {
+    document.getElementById("goal").textContent = sessionGoal;
+    const val = parseInt(goalInput.value);
+    if (!isNaN(val) && val >= 1 && val <= 20) {
+        sessionGoal = val;
+    } else {
+        alert("Please enter a number between 1 and 20.");
+        goalInput.value = sessionGoal; // Reset to valid
+    }
 });
