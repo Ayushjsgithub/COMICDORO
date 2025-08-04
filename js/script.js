@@ -349,12 +349,23 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-goalInput.addEventListener("change", () => {
+function validateGoalInput() {
     const val = parseInt(goalInput.value);
     if (!isNaN(val) && val >= 1 && val <= 20) {
         sessionGoal = val;
+        document.getElementById("goal").textContent = sessionGoal;
     } else {
         alert("Please enter a number between 1 and 20.");
-        goalInput.value = sessionGoal; // Reset to valid
+        goalInput.value = sessionGoal;
     }
+}
+
+goalInput.addEventListener("change", validateGoalInput);
+goalInput.addEventListener("blur", () => {
+    goalInput.setAttribute("readonly", true);
+    validateGoalInput();
+});
+goalInput.addEventListener("click", () => {
+    goalInput.removeAttribute("readonly");
+    goalInput.focus();
 });

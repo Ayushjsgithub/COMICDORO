@@ -516,7 +516,7 @@ body {
     padding: 10px 18px;
     border: 4px solid #000;
     border-radius: 25px 8px 30px 10px;
-    background-color: #fffde7;
+    background-color: transparent;
     box-shadow: 4px 4px 0 #000;
     text-shadow:
         -1px -1px 0 #fff,
@@ -532,24 +532,42 @@ body {
 }
 
 #goal-input {
-    width: 50px;
-    font-family: inherit;
-    font-size: 1rem;
-    padding: 3px 6px;
+    all: unset;
+    width: 32px;
     text-align: center;
-    border: 2px solid #000;
-    border-radius: 8px;
-    box-shadow: 2px 2px 0 #000;
-    background: #fff;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1.1rem;
     color: #000;
-    outline: none;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+    padding: 10px 18px;
+    border: 4px solid #000;
+    border-radius: 25px 8px 30px 10px;
+    box-shadow: 4px 4px 0 #000;
+    background-color: #fffde7;
+
+    text-shadow:
+        -1px -1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px 1px 0 #fff;
+
+    transform: rotate(-1.5deg);
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+#goal-input:hover {
+    transform: scale(1.05) rotate(1deg);
 }
 
 #goal-input:focus {
-    box-shadow: 2px 2px 0 #43aa8b;
-    transform: scale(1.05);
+    cursor: text;
+    box-shadow: 4px 4px 0 #43aa8b;
+    transform: scale(1.05) rotate(0.5deg);
 }
+
+
+
 
 
 
