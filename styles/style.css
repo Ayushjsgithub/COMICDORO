@@ -303,6 +303,7 @@ body {
     transform: translateX(-50%) translateY(30px) scale(0.97);
 }
 
+/*fullscreen */
 .fullscreen-icon {
     position: fixed;
     bottom: 20px;
