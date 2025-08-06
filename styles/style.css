@@ -376,6 +376,10 @@ body {
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
+.info-btn:hover {
+    transform: scale(1.2);
+}
+
 .info-container {
     position: absolute;
     top: 100%;
