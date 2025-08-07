@@ -299,7 +299,6 @@ body {
     }
 }
 
-
 .quote-popup::after {
     content: '';
     position: absolute;
@@ -380,6 +379,7 @@ body {
 }
 
 .info-btn {
+    cursor: pointer;
     font-size: 18px;
     font-weight: 700;
     color: #000;
@@ -404,16 +404,17 @@ body {
     margin-top: 10px;
     background: #fff;
     color: #222;
-    padding: 20px 28px;
+    padding: 1.25rem 1.75rem;
     border: 5px solid #000;
     border-radius: 30px 15px 35px 20px;
     font-size: 1.1rem;
     box-shadow: 6px 6px 0 #000;
     transition: opacity 0.4s ease, transform 0.4s ease;
+    transform-origin: top right;
     z-index: 999;
     opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px) scale(0.97);
+    visibility: visible;
+    transform: translateY(-8px) scale(0.95);
     text-align: left;
     max-width: 400px;
     width: max-content;
@@ -421,24 +422,27 @@ body {
     line-height: 1.6;
     white-space: normal;
     pointer-events: none;
+    max-height: 60vh;
 }
 
 .info-container::after {
     content: '';
     position: absolute;
     top: -15px;
-    right: 30px;
+    right: 15px;
     width: 0;
     height: 0;
-    border: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
     border-bottom: 15px solid #000;
-    border-top: 0;
 }
+
+
 
 .info-container.active {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
     pointer-events: auto;
 }
 
