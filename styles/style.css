@@ -437,8 +437,6 @@ body {
     border-bottom: 15px solid #000;
 }
 
-
-
 .info-container.active {
     opacity: 1;
     visibility: visible;
@@ -551,12 +549,12 @@ body {
         1px -1px 0 #fff,
         -1px 1px 0 #fff,
         1px 1px 0 #fff;
-    transform: rotate(1deg);
+    transform: rotate(-1deg);
     transition: transform 0.2s ease;
 }
 
 #goal-setting:hover {
-    transform: scale(1.05) rotate(-1deg);
+    transform: scale(1.05) rotate(1deg);
 }
 
 #goal-input {
