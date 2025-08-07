@@ -270,10 +270,10 @@ body {
     transform: translateX(-50%);
     background: #fff;
     color: #222;
-    padding: 15px 25px;
+    padding: 1.2rem 2rem;
     border: 6px solid #000;
     border-radius: 30px 10px 40px 15px;
-    font-size: 1.2rem;
+    font-size: clamp(1.1rem, 2vw, 1.3rem);
     font-family: 'Comic Neue', cursive;
     box-shadow: 6px 6px 0 #000;
     transition: opacity 0.4s ease, transform 0.4s ease;
@@ -282,7 +282,23 @@ body {
     text-align: center;
     max-width: 80%;
     white-space: pre-wrap;
+    line-height: 1.6;
+    transform-origin: center bottom;
+    animation: popupFadeIn 1s ease-out;
 }
+
+@keyframes popupFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px) scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+}
+
 
 .quote-popup::after {
     content: '';
@@ -296,11 +312,10 @@ body {
     border-bottom: 0;
 }
 
-
 .quote-popup.hidden {
     opacity: 0;
     pointer-events: none;
-    transform: translateX(-50%) translateY(30px) scale(0.97);
+    transform: translateX(-50%) translateY(20px) scale(0.97);
 }
 
 /*fullscreen */
