@@ -143,15 +143,27 @@ function startQuoteRotation() {
     let lastQuote = "";
 
     const showQuote = () => {
+        if (!quotes.length) return;
+
         let quote;
         do {
             quote = quotes[Math.floor(Math.random() * quotes.length)];
-        } while (quote === lastQuote);
+        } while (quote === lastQuote && quotes.length > 1);
         lastQuote = quote;
 
+
         quoteBox.textContent = quote;
+
+
         quoteBox.classList.remove("hidden");
         quoteBox.style.opacity = "1";
+        quoteBox.classList.remove("animate");
+
+
+        requestAnimationFrame(() => {
+            quoteBox.classList.add("animate");
+        });
+
 
         setTimeout(() => {
             quoteBox.style.opacity = "0";
@@ -162,6 +174,7 @@ function startQuoteRotation() {
     showQuote();
     quoteInterval = setInterval(showQuote, 20000);
 }
+
 
 // ------------------------- Confetti Celebration -------------------------
 

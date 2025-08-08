@@ -267,7 +267,7 @@ body {
     position: fixed;
     bottom: 60px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(20px) scale(0.97);
     background: #fff;
     color: #222;
     padding: 1.2rem 2rem;
@@ -284,6 +284,9 @@ body {
     white-space: pre-wrap;
     line-height: 1.6;
     transform-origin: center bottom;
+}
+
+.quote-popup.animate {
     animation: popupFadeIn 1s ease-out;
 }
 
@@ -296,6 +299,7 @@ body {
     100% {
         opacity: 1;
         transform: translateX(-50%) translateY(0) scale(1);
+        visibility: hidden;
     }
 }
 
