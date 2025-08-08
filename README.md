@@ -1,5 +1,5 @@
 # COMICDORO: The Comic Themed Pomodoro Timer ⏱️✨  
-A comic-themed productivity timer with motivational quotes, breaks and more to help you stay focused.
+A comic-themed productivity timer with quotes, breaks and more to help you stay focused.
 
 # 🚀 Features That Pack a Punch
 - 🧠 **Editable timer** before session start  
