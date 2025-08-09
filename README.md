@@ -3,7 +3,7 @@ A comic-themed productivity timer with quotes, breaks and more to help you stay 
 
 # 🚀 Features That Pack a Punch
 - 🧠 **Editable timer** before session start  
-- 🎯 **Focus/break cycle** (Pomodoro-style)  
+- 🎯 **Focus/break cycle** (Pomodoro style)  
 - 💬 **Random motivational quotes** while working  
 - 🎉 **Animated UI** with comic visuals  
 
