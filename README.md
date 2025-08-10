@@ -7,6 +7,6 @@ A comic themed productivity timer with quotes, breaks and more to help you stay 
 - 💬 **Random motivational quotes** while working  
 - 🎉 **Animated UI** with comic visuals  
 
-# Ready to conquer your to-do list in style?
+# Ready to conquer your to do list in style?
 [**Launch COMICDORO**](https://ayushjsgithub.github.io/COMICDORO/)  
 
