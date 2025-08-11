@@ -4,7 +4,7 @@ A comic themed productivity timer with quotes, breaks and more to help you stay 
 # 🚀 Features That Pack a Punch
 - 🧠 **Customizable timers** set your session length 
 - 🎯 **Focus/break cycle** (Pomodoro style)  
-- 💬 **Random motivational quotes** while working  
+- 💬 **Inspiring quotes** that hit harder than a plot twist
 - 🎉 **Animated UI** with comic visuals  
 
 # Ready to conquer your to do list in style?
